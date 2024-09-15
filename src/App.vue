@@ -1,16 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>HATTORI THE NINJA</h1>
+  <h3>REACTION GAME</h3>
+  <p>Let's see you're worthy</p>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { }
 }
 </script>
 
@@ -20,7 +18,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #251372;
+  text-shadow:2px 2px rgba(0, 0, 0, 0.3);
   margin-top: 60px;
 }
 </style>
