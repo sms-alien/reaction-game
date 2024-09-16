@@ -5,30 +5,42 @@
 
   <button @click="start" :disabled="isPlaying" >Start</button>
 
-  <UseBlock v-if="isPlaying" :delay="delay" />
+  <UseBlock v-if="isPlaying" :delay="delay" @end="endGame" />
+
+  <use-result v-if="showResult" :score="score" />
 
 </template>
 
 <script>
 
 import UseBlock from './components/useBlock.vue';
+import UseResult from './components/useResult.vue';
 
 
 export default {
   name: 'App',
   components: {
-    UseBlock
+    UseBlock,
+    UseResult
   },
   data(){
     return{
       isPlaying:false,
-      delay:null
+      delay:null,
+      score:null,
+      showResult:false
     }
   },
   methods:{
     start(){
       this.delay = 2000 + Math.random() * 5000
       this.isPlaying = true
+      this.showResult=false
+    },
+    endGame(reactionTime){
+      this.score=reactionTime
+      this.isPlaying=false
+      this.showResult=true
     }
   },
 }
@@ -40,8 +52,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #251372;
-  text-shadow:2px 2px rgba(0, 0, 0, 0.3);
+  color: rgb(242, 234, 234);
+  text-shadow:0.2ch 0.3ch rgba(0, 0, 0, 0.9);
   margin-top: 60px;
+}
+body{
+  background: linear-gradient(90deg, #0800ffd3, rgb(184, 162, 255))
+}
+p{
+  font-weight: 500;
 }
 </style>
